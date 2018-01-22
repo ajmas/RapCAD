@@ -100,6 +100,8 @@ static bool skipDir(QString dir)
 #endif
 #ifdef Q_OS_WIN
 	if(dir=="063_rands") return true;
+	if(dir=="030_sphere") return true;
+	if(dir=="042_bezier") return true;
 #endif
 #ifndef USE_SUBDIV
 	if(dir=="090_subdiv") return true;
@@ -283,10 +285,7 @@ void Tester::testFunction(Script& s)
 
 void Tester::testModule(Script& s, QFileInfo file)
 {
-#ifdef Q_OS_WIN
-	writeSkip();
-	return;
-#endif
+
 	TreeEvaluator te(*nullreport);
 
 	QString basename=file.baseName();
