@@ -221,8 +221,7 @@ void Tester::runTests()
 		std::cout << "menu not found\n";
 	} else {
 		std::cout << "menu found\n";
-	QTest::keyClick(menuDesign,Qt::Key_Down);
-	QTest::keyClick(menuDesign,Qt::Key_Down);
+	QTest::keyClick(menuDesign,Qt::Key_B,Qt::NoModifier,100);
 	QTest::keyClick(menuDesign,Qt::Key_Enter,Qt::NoModifier,100);
 	}
 
