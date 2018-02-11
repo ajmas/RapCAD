@@ -217,9 +217,14 @@ void Tester::runTests()
 	ui->activateWindow();
 	QTest::keyClick(ui,Qt::Key_D,Qt::AltModifier,100);
 	QMenu* menuDesign = ui->findChild<QMenu*>("menuDesign");
+	if(!menuDesign) {
+		std::cout << "menu not found\n";
+	} else {
+		std::cout << "menu found\n";
 	QTest::keyClick(menuDesign,Qt::Key_Down);
 	QTest::keyClick(menuDesign,Qt::Key_Down);
 	QTest::keyClick(menuDesign,Qt::Key_Enter,Qt::NoModifier,100);
+	}
 
 	QTimer::singleShot(1000,ui,SLOT(close()));
 	f.remove();
@@ -231,6 +236,7 @@ void Tester::handleSaveItemsDialog()
 	sd->activateWindow();
 	QTest::keyClick(sd,Qt::Key_C,Qt::AltModifier,100);
 	sd->close();
+	std::cout << "Save dialog closed\n";
 }
 
 void Tester::exportTest(const QDir& dir)
